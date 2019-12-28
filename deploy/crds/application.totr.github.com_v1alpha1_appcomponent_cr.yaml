@@ -1,0 +1,7 @@
+apiVersion: application.totr.github.com/v1alpha1
+kind: AppComponent
+metadata:
+  name: example-appcomponent
+spec:
+  # Add fields here
+  size: 3
