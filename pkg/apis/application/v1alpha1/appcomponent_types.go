@@ -8,13 +8,30 @@ import (
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
 // AppComponentSpec defines the desired state of AppComponent
+// +k8s:openapi-gen=true
 type AppComponentSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
-	// Add custom validation using kubebuilder tags: https://book-v1.book.kubebuilder.io/beyond_basics/generating_crd.html
+	// +kubebuilder:validation:MaxLength=50
+	// +kubebuilder:validation:MinLength=1
+	Name string `json:"name"`
+
+	// +kubebuilder:validation:MaxLength=50
+	// +kubebuilder:validation:MinLength=1
+	TemplateId string `json:"templateId"`
+
+	// +kubebuilder:validation:MaxLength=50
+	// +kubebuilder:validation:MinLength=1
+	ApplicationID string `json:"applicationId"`
+
+	// +kubebuilder:validation:MaxLength=50
+	// +kubebuilder:validation:MinLength=1
+	CustomerID string `json:"customerId"`
+
+	// +kubebuilder:validation:Optional
+	Description string `json:"description"`
 }
 
 // AppComponentStatus defines the observed state of AppComponent
+// +k8s:openapi-gen=true
 type AppComponentStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
